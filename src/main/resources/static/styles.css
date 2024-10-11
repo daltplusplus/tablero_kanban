@@ -1,0 +1,24 @@
+body {
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    padding: 10px;
+}
+
+.board {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.board h2 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+button {
+    margin: 10px;
+}

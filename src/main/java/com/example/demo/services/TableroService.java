@@ -37,6 +37,10 @@ public class TableroService {
 		return tableroRepository.findAll();
 	}
 
+	public void borrarTablero(Long id){
+		tableroRepository.deleteById(id);
+	}
+
 	public Tablero obtenerTableroPorId(Long id) {
 		return tableroRepository.findById(id).orElse(null);
 	}
