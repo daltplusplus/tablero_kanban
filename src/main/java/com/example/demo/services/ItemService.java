@@ -25,8 +25,9 @@ public class ItemService {
 				.orElseThrow(() -> new RuntimeException("Lista no encontrada"));
 
 		lista.addItem(item);
-
-		return itemRepository.save(item);
+		itemRepository.save(item);
+		listaRepository.save(lista);
+		return item;
 	}
 
 	public List<Item> obtenerItems() {

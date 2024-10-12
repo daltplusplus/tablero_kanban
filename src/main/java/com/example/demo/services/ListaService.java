@@ -25,15 +25,20 @@ public class ListaService {
 				.orElseThrow(() -> new RuntimeException("Tablero no encontrado"));
 
 		tablero.addLista(lista);
-
-		return listaRepository.save(lista);
+		listaRepository.save(lista);
+		tableroRepository.save(tablero);
+		return lista;
 	}
 
-	public List<Lista> obtenerlistas() {
+	public List<Lista> obtenerListas() {
 		return listaRepository.findAll();
 	}
 
-	public Lista obtenerlistaPorId(Long id) {
+	public Lista obtenerListaPorId(Long id) {
 		return listaRepository.findById(id).orElse(null);
+	}
+
+	public void eliminarLista(Long id){
+		listaRepository.deleteById(id);
 	}
 }
