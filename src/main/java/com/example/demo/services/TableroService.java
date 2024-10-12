@@ -23,7 +23,8 @@ public class TableroService {
 		Persona persona = personaRepository.findById(personaId)
 				.orElseThrow(() -> new RuntimeException("Persona no encontrada"));
 
-		persona.addTablero(tablero);
+		tablero.addAutorizado(persona);
+		tablero.setCreador(persona);
 
 		tableroRepository.save(tablero);
 

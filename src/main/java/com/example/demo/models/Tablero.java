@@ -1,14 +1,7 @@
 package com.example.demo.models;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
@@ -29,6 +22,13 @@ public class Tablero {
 	@JoinColumn(name = "tablero_id")
 	private List<Lista> listas = new ArrayList<>();
 
+	@ManyToOne()
+	private Persona creador;
+
+	@ManyToMany()
+	private List<Persona> autorizados;
+
+
 	public Tablero(){}
 
 	public void addLista(Lista lista){
@@ -37,5 +37,13 @@ public class Tablero {
 
 	public Tablero(String nombre){
 		this.nombre = nombre;
+	}
+
+	public void addAutorizado(Persona persona){
+		autorizados.add(persona);
+	}
+
+	public void setCreador(Persona creador) {
+		this.creador = creador;
 	}
 }

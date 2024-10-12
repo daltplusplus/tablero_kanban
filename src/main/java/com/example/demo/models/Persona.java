@@ -24,10 +24,8 @@ public class Persona {
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Setter
-	@OneToMany()
-	@JoinColumn(name = "persona_id")
-	private List<Tablero> tableros = new ArrayList<>();
+	@Column(name = "apellido")
+	private String apellido;
 
 	public Persona(String nombre){
 		this.nombre = nombre;
@@ -38,9 +36,5 @@ public class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-
-	public void addTablero(Tablero tablero) {
-		tableros.add(tablero);
-	}
+	
 }
