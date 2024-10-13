@@ -21,9 +21,11 @@ public class Persona {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	@Setter
 	@Column(name = "nombre")
 	private String nombre;
 
+	@Setter
 	@Column(name = "apellido")
 	private String apellido;
 
@@ -32,9 +34,5 @@ public class Persona {
 	}
 
 	public Persona(){}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 	
 }

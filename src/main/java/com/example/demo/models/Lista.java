@@ -11,6 +11,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Setter;
 
 @Entity
 @Table(name = "lista")
@@ -18,10 +19,11 @@ public class Lista {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@Setter
 	@Column(name = "nombre")
 	private String nombre;
 
-	@OneToMany()
+	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "lista_id")
 	private List<Item> items = new ArrayList<>();
 

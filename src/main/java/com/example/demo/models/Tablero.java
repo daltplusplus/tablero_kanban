@@ -18,7 +18,7 @@ public class Tablero {
 	@Column(name = "nombre")
 	private String nombre;
 	@Setter
-	@OneToMany()
+	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name = "tablero_id")
 	private List<Lista> listas = new ArrayList<>();
 
@@ -26,7 +26,7 @@ public class Tablero {
 	private Persona creador;
 
 	@ManyToMany()
-	private List<Persona> autorizados;
+	private List<Persona> autorizados = new ArrayList<>();
 
 
 	public Tablero(){}
